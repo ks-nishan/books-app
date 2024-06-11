@@ -1,4 +1,5 @@
 import AddBook from "./components/AddBook";
+import AllBooks from "./components/AllBooks";
 
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
         <h2 className="text-2xl font-bold">Books Application</h2>
         <AddBook />
       </div>
+      <AllBooks />
     </main>
   );
 }
