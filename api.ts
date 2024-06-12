@@ -9,7 +9,8 @@ export const getAllBooks = async (): Promise<Book[]> => {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+            cache: 'no-store' // To avoid caching issues
         });
         
         if (!response.ok) {
@@ -17,10 +18,8 @@ export const getAllBooks = async (): Promise<Book[]> => {
         }
 
         const books: Book[] = await response.json();
-        console.log('Fetched books:', books);
         return books;
     } catch (error) {
-        console.error('Failed to fetch books:', error);
         throw error;
     }
 };
