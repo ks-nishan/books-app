@@ -23,3 +23,15 @@ export const getAllBooks = async (): Promise<Book[]> => {
         throw error;
     }
 };
+
+export const addBook = async (book: Book): Promise<Book> => {
+    const res = await fetch(`${baseURL}/books`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(book)
+    })
+    const newBook = await res.json();
+    return newBook;
+}

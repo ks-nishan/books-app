@@ -2,8 +2,11 @@
 import { BiBookAdd } from "react-icons/bi";
 import AddBookForm from "./AddBookForm";
 import { FormEventHandler, useState, ChangeEventHandler } from "react";
+import { addBook } from "@/api";
+import { useRouter } from "next/navigation";
 
 function AddBook() {
+  const router = useRouter();
   const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
   const [formValues, setFormValues] = useState({
     title: '',
@@ -17,14 +20,26 @@ function AddBook() {
     setFormValues({ ...formValues, [name]: value });
   };
 
-  const handleSubmitNewBook: FormEventHandler<HTMLFormElement> = (e) => {
+  const handleSubmitNewBook: FormEventHandler<HTMLFormElement> =async (e) => {
     e.preventDefault();
+    const newBook = {
+      id: "65",
+      title: formValues.title,
+      author: formValues.author,
+      price: formValues.price,
+      status: formValues.status,
+    };
+    await addBook(newBook);
+    // set the form values to empty
     setFormValues({
       title: '',
       author: '',
       price: '',
       status: 'available',
     });
+    // closing the modal after submit
+    setIsFormOpen(false);
+    router.refresh();
   };
 
   return (
