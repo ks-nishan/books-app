@@ -30,6 +30,7 @@ export const addBook = async (book: Book): Promise<Book> => {
         headers: {
             'Content-Type': 'application/json'
         },
+        cache: 'no-store',
         body: JSON.stringify(book)
     })
     const newBook = await res.json();
