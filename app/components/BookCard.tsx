@@ -13,14 +13,14 @@ const BookCard = ({ book }: BookCardProps) => {
     setTimeout(() => {
       setShowToast(false);
     }, 5000);
-  }
+  };
 
   return (
     <div key={book.id} className="card w-76 bg-primary text-primary-content">
       <div className="card-body">
         <h2 className="card-title">
           {book.title}{" "}
-          <div className="badge badge-secondary">{book.status}</div>
+          <div className="badge text-black" style={{backgroundColor: book.status === 'Available' ? 'green' : 'yellow'}}>{book.status}</div>
         </h2>
         <h4>Author : {book.author}</h4>
         <h4>Price : {book.price}</h4>
@@ -34,11 +34,7 @@ const BookCard = ({ book }: BookCardProps) => {
           </button>
         </div>
       </div>
-      {showToast ? (
-        <CustomToast title="Book added to the cart."/>
-      ) : (
-        ""
-      )}
+      {showToast ? <CustomToast title="Book added to the cart." /> : ""}
     </div>
   );
 };
