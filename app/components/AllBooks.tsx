@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { Book } from "@/types/book";
 import BookCard from "./BookCard";
-import { AiOutlineClose } from "react-icons/ai";
 
 interface AllBooksProps {
   books: Book[];
@@ -14,7 +13,13 @@ export const AllBooks = ({ books }: AllBooksProps) => {
 
   const indexOfLastBook = currentPage * booksPerPage;
   const indexOfFirstBook = indexOfLastBook - booksPerPage;
-  const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
+
+  // Sort books based on the title in ascending order
+  const sortedBooks = [...books].sort((a, b) =>
+    a.title.localeCompare(b.title)
+  );
+
+  const currentBooks = sortedBooks.slice(indexOfFirstBook, indexOfLastBook);
 
   const totalPages = Math.ceil(books.length / booksPerPage);
 
