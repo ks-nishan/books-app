@@ -1,12 +1,12 @@
 import { Dispatch, SetStateAction } from 'react';
 
-interface AddBookFormProps {
+interface AddBookModalProps {
     isFormOpen: boolean
     setIsFormOpen: Dispatch<SetStateAction<boolean>>;
     children: React.ReactNode
 }
 
-const AddBookForm = ({ isFormOpen, setIsFormOpen, children }: AddBookFormProps) => {
+const AddBookModal = ({ isFormOpen, setIsFormOpen, children }: AddBookModalProps) => {
   return (
     <dialog className={`modal ${isFormOpen ? "modal-open" : ""}`}>
       <div className="modal-box w-11/12 max-w-3xl">
@@ -19,4 +19,4 @@ const AddBookForm = ({ isFormOpen, setIsFormOpen, children }: AddBookFormProps) 
   );
 };
 
-export default AddBookForm;
+export default AddBookModal;

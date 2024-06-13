@@ -1,6 +1,6 @@
 "use client";
 import { BiBookAdd } from "react-icons/bi";
-import AddBookForm from "./AddBookForm";
+import AddBookModal from "./AddBookModal";
 import { FormEventHandler, useState, ChangeEventHandler } from "react";
 import { addBook } from "@/api";
 import { useRouter } from "next/navigation";
@@ -88,7 +88,7 @@ function AddBook() {
         Add new book
         <BiBookAdd className="ml-1" size={20} />
       </button>
-      <AddBookForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen}>
+      <AddBookModal isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen}>
         <form onSubmit={handleSubmitNewBook}>
           <h3 className="font-bold text-lg">Add New Book</h3>
           <div className="grid lg:grid-cols-2 md:grid-cols-2 gap-4 sm:gap-2 mt-2">
@@ -201,7 +201,7 @@ function AddBook() {
             Submit
           </button>
         </form>
-      </AddBookForm>
+      </AddBookModal>
     </>
   );
 }
