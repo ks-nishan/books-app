@@ -100,7 +100,7 @@ function AddBook() {
               </label>
               <input
                 type="text"
-                className="border rounded w-full py-2 px-3 text-gray-400 leading-tight focus:outline-none focus:shadow-outline"
+                className="border rounded w-full py-2 px-3 text-gray-400 leading-tight"
                 name="title"
                 placeholder="Book Title"
                 value={formValues.title}
@@ -122,7 +122,7 @@ function AddBook() {
               </label>
               <input
                 type="text"
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-400 leading-tight focus:outline-none focus:shadow-outline"
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-400 leading-tight"
                 name="author"
                 placeholder="Author Name"
                 value={formValues.author}
@@ -144,7 +144,7 @@ function AddBook() {
               </label>
               <input
                 type="text"
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-400 leading-tight focus:outline-none focus:shadow-outline"
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-400 leading-tight"
                 name="price"
                 placeholder="Price"
                 value={formValues.price}
@@ -165,7 +165,7 @@ function AddBook() {
                 Status
               </label>
               <select
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-400 leading-tight focus:outline-none focus:shadow-outline"
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-400 leading-tight"
                 name="status"
                 id="status"
                 value={formValues.status}
@@ -176,7 +176,7 @@ function AddBook() {
               </select>
             </div>
           </div>
-          <button type="submit" className="btn absolute bottom-6 right-28">Submit</button>
+          <button type="submit" className="btn absolute bottom-6 right-28 bg-primary text-black hover:bg-primary">Submit</button>
         </form>
       </AddBookForm>
     </>

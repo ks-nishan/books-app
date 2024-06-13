@@ -14,7 +14,7 @@ const BookCard = ({ book }: BookCardProps) => {
         <h4>Author : {book.author}</h4>
         <h4>Price : {book.price}</h4>
         <div className="card-actions justify-end">
-          <button className="btn">Add to cart</button>
+          <button className="btn hover:text-white">Add to cart</button>
         </div>
       </div>
     </div>
