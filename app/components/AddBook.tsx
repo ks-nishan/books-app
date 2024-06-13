@@ -4,31 +4,33 @@ import AddBookForm from "./AddBookForm";
 import { FormEventHandler, useState, ChangeEventHandler } from "react";
 import { addBook } from "@/api";
 import { useRouter } from "next/navigation";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 function AddBook() {
   const router = useRouter();
   const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
   const [formValues, setFormValues] = useState({
-    title: '',
-    author: '',
-    price: '',
-    status: 'Available',
+    title: "",
+    author: "",
+    price: "",
+    status: "Available",
   });
   const [formErrors, setFormErrors] = useState({
-    title: '',
-    author: '',
-    price: '',
+    title: "",
+    author: "",
+    price: "",
   });
 
-  const handleInputChange: ChangeEventHandler<HTMLInputElement | HTMLSelectElement> = (e) => {
+  const handleInputChange: ChangeEventHandler<
+    HTMLInputElement | HTMLSelectElement
+  > = (e) => {
     const { name, value } = e.target;
 
-    if (name === 'price') {
+    if (name === "price") {
       // append the price with '$' sign
-      let formattedValue = value.startsWith('$') ? value : `$${value}`;
+      let formattedValue = value.startsWith("$") ? value : `$${value}`;
       // removing if there are any whitespaces
-      formattedValue = formattedValue.replace(/\s+/g, '');
+      formattedValue = formattedValue.replace(/\s+/g, "");
       setFormValues({ ...formValues, [name]: formattedValue });
     } else {
       setFormValues({ ...formValues, [name]: value });
@@ -38,24 +40,28 @@ function AddBook() {
   // set the form values to empty
   const setEmptyFields = () => {
     setFormValues({
-      title: '',
-      author: '',
-      price: '',
-      status: 'Available',
+      title: "",
+      author: "",
+      price: "",
+      status: "Available",
     });
-  }
+  };
 
-  const handleSubmitNewBook: FormEventHandler<HTMLFormElement> =async (e) => {
+  const handleSubmitNewBook: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     const errors = {
-      title: formValues.title ? '' : 'This field is required',
-      author: formValues.author ? '' : 'This field is required',
-      price: formValues.price ? '' : 'This field is required',
+      title: formValues.title ? "" : "This field is required",
+      author: formValues.author ? "" : "This field is required",
+      price: formValues.price ? "" : "This field is required",
     };
+    // Additional validation for price
+    if (formValues.price && /[^0-9$]/.test(formValues.price)) {
+      errors.price = "This entry can only contain numbers";
+    }
     setFormErrors(errors);
 
     // Check if there are any errors
-    if (Object.values(errors).some(error => error)) {
+    if (Object.values(errors).some((error) => error)) {
       return; // Stop form submission if there are errors
     }
 
@@ -106,7 +112,11 @@ function AddBook() {
                 value={formValues.title}
                 onChange={handleInputChange}
               />
-              {formErrors.title && <p className="text-red-500 text-s italic text-left">{formErrors.title}</p>}
+              {formErrors.title && (
+                <p className="text-red-500 text-s italic text-left">
+                  {formErrors.title}
+                </p>
+              )}
             </div>
             <div className="relative mb-6">
               <label
@@ -128,7 +138,11 @@ function AddBook() {
                 value={formValues.author}
                 onChange={handleInputChange}
               />
-              {formErrors.title && <p className="text-red-500 text-s italic text-left">{formErrors.author}</p>}
+              {formErrors.author && (
+                <p className="text-red-500 text-s italic text-left">
+                  {formErrors.author}
+                </p>
+              )}
             </div>
             <div className="relative mb-6">
               <label
@@ -150,7 +164,11 @@ function AddBook() {
                 value={formValues.price}
                 onChange={handleInputChange}
               />
-              {formErrors.title && <p className="text-red-500 text-s italic text-left">{formErrors.price}</p>}
+              {formErrors.price && (
+                <p className="text-red-500 text-s italic text-left">
+                  {formErrors.price}
+                </p>
+              )}
             </div>
             <div className="relative mb-6">
               <label
@@ -176,7 +194,12 @@ function AddBook() {
               </select>
             </div>
           </div>
-          <button type="submit" className="btn absolute bottom-6 right-28 bg-primary text-black hover:bg-primary">Submit</button>
+          <button
+            type="submit"
+            className="btn absolute bottom-6 right-28 bg-primary text-black hover:bg-primary"
+          >
+            Submit
+          </button>
         </form>
       </AddBookForm>
     </>
