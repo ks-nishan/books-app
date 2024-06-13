@@ -1,25 +1,25 @@
 {
-    "books": [
-        {
-            "id": 1,
-            "title": "Eat the Frog",
-            "author": "Nishanthan",
-            "price": "34$",
-            "status": "Available"
-        },
-        {
-            "id": 2,
-            "title": "Make Money",
-            "author": "Nishanthan",
-            "price": "240$",
-            "status": "Out of stock"
-        },
-        {
-            "id": 3,
-            "title": "Do it today",
-            "author": "Ramkumar",
-            "price": "53$",
-            "status": "Available"
-        }
-    ]
+  "books": [
+    {
+      "id": "1",
+      "title": "Eat the Frog",
+      "author": "Nishanthan",
+      "price": "34$",
+      "status": "Available"
+    },
+    {
+      "id": "2",
+      "title": "Make Money",
+      "author": "Nishanthan",
+      "price": "240$",
+      "status": "Not Available"
+    },
+    {
+      "id": "3",
+      "title": "Do it today",
+      "author": "Ramkumar",
+      "price": "53$",
+      "status": "Available"
+    }
+  ]
 }

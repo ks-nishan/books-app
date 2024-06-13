@@ -35,6 +35,16 @@ function AddBook() {
     }
   };
 
+  // set the form values to empty
+  const setEmptyFields = () => {
+    setFormValues({
+      title: '',
+      author: '',
+      price: '',
+      status: 'available',
+    });
+  }
+
   const handleSubmitNewBook: FormEventHandler<HTMLFormElement> =async (e) => {
     e.preventDefault();
     const errors = {
@@ -57,13 +67,7 @@ function AddBook() {
       status: formValues.status,
     };
     await addBook(newBook);
-    // set the form values to empty
-    setFormValues({
-      title: '',
-      author: '',
-      price: '',
-      status: 'available',
-    });
+    setEmptyFields();
     // closing the modal after submit
     setIsFormOpen(false);
     router.refresh();
