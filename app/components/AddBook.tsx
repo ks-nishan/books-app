@@ -4,6 +4,7 @@ import AddBookForm from "./AddBookForm";
 import { FormEventHandler, useState, ChangeEventHandler } from "react";
 import { addBook } from "@/api";
 import { useRouter } from "next/navigation";
+import { v4 as uuidv4 } from 'uuid';
 
 function AddBook() {
   const router = useRouter();
@@ -23,7 +24,7 @@ function AddBook() {
   const handleSubmitNewBook: FormEventHandler<HTMLFormElement> =async (e) => {
     e.preventDefault();
     const newBook = {
-      id: "65",
+      id: uuidv4(),
       title: formValues.title,
       author: formValues.author,
       price: formValues.price,
