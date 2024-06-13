@@ -15,14 +15,40 @@ function AddBook() {
     price: '',
     status: 'available',
   });
+  const [formErrors, setFormErrors] = useState({
+    title: '',
+    author: '',
+    price: '',
+  });
 
   const handleInputChange: ChangeEventHandler<HTMLInputElement | HTMLSelectElement> = (e) => {
     const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
+
+    if (name === 'price') {
+      // append the price with '$' sign
+      let formattedValue = value.startsWith('$') ? value : `$${value}`;
+      // removing if there are any whitespaces
+      formattedValue = formattedValue.replace(/\s+/g, '');
+      setFormValues({ ...formValues, [name]: formattedValue });
+    } else {
+      setFormValues({ ...formValues, [name]: value });
+    }
   };
 
   const handleSubmitNewBook: FormEventHandler<HTMLFormElement> =async (e) => {
     e.preventDefault();
+    const errors = {
+      title: formValues.title ? '' : 'This field is required',
+      author: formValues.author ? '' : 'This field is required',
+      price: formValues.price ? '' : 'This field is required',
+    };
+    setFormErrors(errors);
+
+    // Check if there are any errors
+    if (Object.values(errors).some(error => error)) {
+      return; // Stop form submission if there are errors
+    }
+
     const newBook = {
       id: uuidv4(),
       title: formValues.title,
@@ -75,8 +101,8 @@ function AddBook() {
                 placeholder="Book Title"
                 value={formValues.title}
                 onChange={handleInputChange}
-                required
               />
+              {formErrors.title && <p className="text-red-500 text-s italic text-left">{formErrors.title}</p>}
             </div>
             <div className="relative mb-6">
               <label
@@ -97,8 +123,8 @@ function AddBook() {
                 placeholder="Author Name"
                 value={formValues.author}
                 onChange={handleInputChange}
-                required
               />
+              {formErrors.title && <p className="text-red-500 text-s italic text-left">{formErrors.author}</p>}
             </div>
             <div className="relative mb-6">
               <label
@@ -110,7 +136,7 @@ function AddBook() {
                   display: "block",
                 }}
               >
-                Price *
+                Price in USD *
               </label>
               <input
                 type="text"
@@ -120,6 +146,7 @@ function AddBook() {
                 value={formValues.price}
                 onChange={handleInputChange}
               />
+              {formErrors.title && <p className="text-red-500 text-s italic text-left">{formErrors.price}</p>}
             </div>
             <div className="relative mb-6">
               <label
@@ -131,7 +158,7 @@ function AddBook() {
                   display: "block",
                 }}
               >
-                Status *
+                Status
               </label>
               <select
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-400 leading-tight focus:outline-none focus:shadow-outline"
@@ -139,10 +166,9 @@ function AddBook() {
                 id="status"
                 value={formValues.status}
                 onChange={handleInputChange}
-                required
               >
                 <option value="Available">Available</option>
-                <option value="Out Of Stock">Out of Stock</option>
+                <option value="Not Available">Not Available</option>
               </select>
             </div>
           </div>
