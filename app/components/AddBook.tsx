@@ -13,7 +13,7 @@ function AddBook() {
     title: '',
     author: '',
     price: '',
-    status: 'available',
+    status: 'Available',
   });
   const [formErrors, setFormErrors] = useState({
     title: '',
@@ -41,7 +41,7 @@ function AddBook() {
       title: '',
       author: '',
       price: '',
-      status: 'available',
+      status: 'Available',
     });
   }
 
