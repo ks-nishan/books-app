@@ -66,7 +66,7 @@ function AddBook() {
                   display: "block",
                 }}
               >
-                Book Title
+                Book Title *
               </label>
               <input
                 type="text"
@@ -75,6 +75,7 @@ function AddBook() {
                 placeholder="Book Title"
                 value={formValues.title}
                 onChange={handleInputChange}
+                required
               />
             </div>
             <div className="relative mb-6">
@@ -87,7 +88,7 @@ function AddBook() {
                   display: "block",
                 }}
               >
-                Author Name
+                Author Name *
               </label>
               <input
                 type="text"
@@ -96,6 +97,7 @@ function AddBook() {
                 placeholder="Author Name"
                 value={formValues.author}
                 onChange={handleInputChange}
+                required
               />
             </div>
             <div className="relative mb-6">
@@ -108,7 +110,7 @@ function AddBook() {
                   display: "block",
                 }}
               >
-                Price
+                Price *
               </label>
               <input
                 type="text"
@@ -129,7 +131,7 @@ function AddBook() {
                   display: "block",
                 }}
               >
-                Status
+                Status *
               </label>
               <select
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-400 leading-tight focus:outline-none focus:shadow-outline"
@@ -137,9 +139,10 @@ function AddBook() {
                 id="status"
                 value={formValues.status}
                 onChange={handleInputChange}
+                required
               >
-                <option value="available">Available</option>
-                <option value="outOfStock">Out of Stock</option>
+                <option value="Available">Available</option>
+                <option value="Out Of Stock">Out of Stock</option>
               </select>
             </div>
           </div>
