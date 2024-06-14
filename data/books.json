@@ -1,24 +1,80 @@
 {
   "books": [
     {
-      "id": "1",
-      "title": "Eat the Frog",
-      "author": "Nishanthan",
-      "price": "34$",
+      "id": "06fa4e8c-91ee-4def-89be-0902e5eaa5ee",
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "price": "$34",
       "status": "Available"
     },
     {
-      "id": "2",
-      "title": "Make Money",
-      "author": "Nishanthan",
-      "price": "240$",
+      "id": "eae9453a-c7b6-4e2b-b212-1ebb2ffe8978",
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "price": "$120",
+      "status": "Available"
+    },
+    {
+      "id": "db6d4b6c-e6eb-4d5e-b70f-29d484a35b39",
+      "title": "1984",
+      "author": "George Orwell",
+      "price": "$56",
       "status": "Not Available"
     },
     {
-      "id": "3",
-      "title": "Do it today",
-      "author": "Ramkumar",
-      "price": "53$",
+      "id": "9379bf9f-d239-43a3-927e-87dcfb0eb739",
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "price": "$76",
+      "status": "Available"
+    },
+    {
+      "id": "8975840f-8912-478b-a6a9-810606ad9462",
+      "title": "Moby-Dick",
+      "author": "Herman Melville",
+      "price": "$98",
+      "status": "Not Available"
+    },
+    {
+      "id": "5e2a2b40-06eb-4214-b7af-8aa561b0b052",
+      "title": "Brave New World",
+      "author": "Aldous Huxley",
+      "price": "$32",
+      "status": "Available"
+    },
+    {
+      "id": "051be4a8-f3f3-41cd-8473-a468740d70d1",
+      "title": "Jane Eyre",
+      "author": "Charlotte Bronte",
+      "price": "$34",
+      "status": "Not Available"
+    },
+    {
+      "id": "7bb94670-5a8d-4c9d-a3be-3d214751a99a",
+      "title": "Moby-Dick",
+      "author": "Herman Melville",
+      "price": "$56",
+      "status": "Not Available"
+    },
+    {
+      "id": "699ab4d9-b4d4-40f5-a564-612d4cdb4280",
+      "title": "Demo book",
+      "author": "Karkee",
+      "price": "$26",
+      "status": "Available"
+    },
+    {
+      "id": "d767d188-4367-46cb-965f-fb5f1e7db35c",
+      "title": "Colambian",
+      "author": "Nishan",
+      "price": "$24",
+      "status": "Available"
+    },
+    {
+      "id": "cb97de3a-df04-4647-983f-188cd87e5758",
+      "title": "Abc book",
+      "author": "Nishanthan",
+      "price": "$34",
       "status": "Available"
     }
   ]
