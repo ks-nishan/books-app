@@ -196,7 +196,7 @@ function AddBook() {
           </div>
           <button
             type="submit"
-            className="btn absolute bottom-6 sm:bottom-1 right-28 bg-primary text-black hover:bg-primary"
+            className="btn absolute bottom-6 right-28 bg-primary text-black hover:bg-primary"
           >
             Submit
           </button>
